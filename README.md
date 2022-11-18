@@ -3,7 +3,7 @@
 Atividades
 1. 	Considere o diagrama de classes do domínio da aplicação abaixo:
 
-<img src="https://imageup.me/gvp">
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imigrantesbebidas.com.br%2Frefrigerante-coca-cola-lata-350ml&psig=AOvVaw0-0oIiArR8a5nmZT_jsilA&ust=1668885051943000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCPjAi7e3uPsCFQAAAAAdAAAAABAD">
 
 2. 	Faça uma aplicação API REST baseada no diagrama apresentado acima. Essa
 aplicação precisa ter as seguintes características:
