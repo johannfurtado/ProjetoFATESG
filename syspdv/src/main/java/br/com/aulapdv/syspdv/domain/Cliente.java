@@ -1,6 +1,7 @@
 package br.com.aulapdv.syspdv.domain;
 
 import java.util.List;
+import java.util.Set;
 
 public class Cliente {
     private Integer id;
@@ -10,7 +11,7 @@ public class Cliente {
 
     private TipoCliente tipo;
     private List<Endereco> enderecos;
-    private List<Telefone> telefones;
+    private Set<String> telefones;
     private List<ItemPedido> ItensPedidos;
 
     public Integer getId() {
@@ -43,13 +44,13 @@ public class Cliente {
     public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
-    public List<Telefone> getTelefones() {
+    public Set<String> getTelefones() {
         return telefones;
     }
-    public void setTelefones(List<Telefone> telefones) {
+    public void setTelefones(Set<String> telefones) {
         this.telefones = telefones;
     }
-    public TipoCliente getTipo() {
+       public TipoCliente getTipo() {
         return tipo;
     }
     public void setTipo(TipoCliente tipo) {
@@ -61,14 +62,19 @@ public class Cliente {
     public void setItensPedidos(List<ItemPedido> itensPedidos) {
         ItensPedidos = itensPedidos;
     }
-    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
+    
+    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, List<Endereco> enderecos,
+            Set<String> telefones, List<ItemPedido> itensPedidos) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = tipo;
+        this.enderecos = enderecos;
+        this.telefones = telefones;
+        ItensPedidos = itensPedidos;
     }
-   
+    
 }
     
 

@@ -2,7 +2,7 @@ package br.com.aulapdv.syspdv.domain;
 
 import java.time.LocalDate;
 
-public class PagamentoComBoleto {
+public class PagamentoComBoleto extends Pagamento{
     
     private LocalDate dataVencimento;
     private LocalDate dataPagamento;
@@ -19,11 +19,17 @@ public class PagamentoComBoleto {
     public void setDataPagamento(LocalDate dataPagamento) {
         this.dataPagamento = dataPagamento;
     }
+    public PagamentoComBoleto(Integer id, EstadoPagamento estado, PagamentoComCartao pagamentoComCartao,
+            PagamentoComBoleto pagamentoComBoleto, LocalDate dataVencimento, LocalDate dataPagamento) {
+        super(id, estado, pagamentoComCartao, pagamentoComBoleto);
+        this.dataVencimento = dataVencimento;
+        this.dataPagamento = dataPagamento;
+    } 
     public PagamentoComBoleto(LocalDate dataVencimento, LocalDate dataPagamento) {
         this.dataVencimento = dataVencimento;
         this.dataPagamento = dataPagamento;
     }
+    public PagamentoComBoleto(){
 
-    
-
+    }
 }

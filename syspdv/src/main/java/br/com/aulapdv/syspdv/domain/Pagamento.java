@@ -38,6 +38,8 @@ public class Pagamento {
         this.pagamentoComCartao = pagamentoComCartao;
         PagamentoComBoleto = pagamentoComBoleto;
     }
+    public Pagamento(){
+    }
     
     
 
