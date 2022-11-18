@@ -62,17 +62,13 @@ public class Cliente {
     public void setItensPedidos(List<ItemPedido> itensPedidos) {
         ItensPedidos = itensPedidos;
     }
-    
-    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, List<Endereco> enderecos,
-            Set<String> telefones, List<ItemPedido> itensPedidos) {
+
+    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = tipo;
-        this.enderecos = enderecos;
-        this.telefones = telefones;
-        ItensPedidos = itensPedidos;
     }
     
 }
