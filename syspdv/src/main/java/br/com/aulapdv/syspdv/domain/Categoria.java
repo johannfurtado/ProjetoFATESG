@@ -1,12 +1,20 @@
 package br.com.aulapdv.syspdv.domain;
 
 import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
+@Entity
 public class Categoria {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-
+    @ManyToMany(mappedBy = "categorias")
     private List<Produto> produtos;
 
     public Integer getId() {

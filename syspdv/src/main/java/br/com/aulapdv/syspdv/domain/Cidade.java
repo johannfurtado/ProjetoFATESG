@@ -1,10 +1,21 @@
 package br.com.aulapdv.syspdv.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class Cidade {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-
+    @ManyToOne
+    @JoinColumn(name = "ESTADO_ID")
     private Estado estado;
 
     public Integer getId() {

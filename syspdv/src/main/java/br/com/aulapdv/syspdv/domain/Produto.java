@@ -1,14 +1,27 @@
 package br.com.aulapdv.syspdv.domain;
 
 import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
+@Entity
 public class Produto {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private Double preco;
-
     private List<ItemPedido> itensPedidos;
+    @ManyToMany
+    @JoinTable(name = "PROD_CAT", 
+               joinColumns = @JoinColumn(name = "PROD_ID" ),
+               inverseJoinColumns = @JoinColumn(name = "CAT_ID"))
     private List<Categoria> categorias;
 
     public Integer getId() {
