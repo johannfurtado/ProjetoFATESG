@@ -71,6 +71,8 @@ public class Endereco {
         this.cidade = cidade;
         this.cliente = cliente;
     }
+    public Endereco() {
+    }
     
     
 

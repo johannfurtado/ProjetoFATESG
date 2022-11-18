@@ -41,7 +41,9 @@ public class Pedido {
         this.instante = instante;
         this.pagamento = pagamento;
     }
-
+    public Pedido() {
+    }
+    
     
 
 }

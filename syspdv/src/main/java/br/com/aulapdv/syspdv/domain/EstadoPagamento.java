@@ -21,4 +21,7 @@ public enum EstadoPagamento {
         return descricao;
     }
 
+    private EstadoPagamento() {
+    }
+    
 }

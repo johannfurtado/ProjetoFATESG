@@ -45,5 +45,7 @@ public class ItemPedido {
         this.pedido = pedido;
         this.produto = produto;
     }
-
+    public ItemPedido() {
+    }
+    
 }

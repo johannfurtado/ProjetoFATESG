@@ -12,6 +12,9 @@ public enum TipoCliente {
         this.descricao = descricao;
     }
 
+    private TipoCliente() {
+    }
+
     public Integer getValor() {
         return valor;
     }

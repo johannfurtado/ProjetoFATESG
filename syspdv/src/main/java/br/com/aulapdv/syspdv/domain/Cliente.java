@@ -70,6 +70,8 @@ public class Cliente {
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = tipo;
     }
+    public Cliente() {
+    }
     
 }
     

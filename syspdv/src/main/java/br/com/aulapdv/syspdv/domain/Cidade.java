@@ -31,6 +31,8 @@ public class Cidade {
         this.nome = nome;
         this.estado = estado;
     }
+    public Cidade() {
+    }
 
     
 }

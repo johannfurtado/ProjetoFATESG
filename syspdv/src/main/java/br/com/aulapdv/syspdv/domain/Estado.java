@@ -31,5 +31,8 @@ public class Estado {
         this.id = id;
         this.nome = nome;
     }
+    public Estado() {
+    }
+    
 
 }
