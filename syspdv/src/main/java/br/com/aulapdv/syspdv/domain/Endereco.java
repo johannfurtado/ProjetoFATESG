@@ -1,7 +1,17 @@
 package br.com.aulapdv.syspdv.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class Endereco {
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String logradouro;
     private String numero;
@@ -9,9 +19,28 @@ public class Endereco {
     private String bairro;
     private String cep;
 
-    private Cidade cidade; 
-    private Cliente cliente;  
+    @OneToOne
+    @JoinColumn(name = "CIDADE_ID")
+    private Cidade cidade;
 
+    @ManyToOne
+    @JoinColumn(name = "CLI_ID")
+    private Cliente cliente;
+
+    public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep,
+            Cidade cidade, Cliente cliente) {
+        this.id = id;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.cliente = cliente;
+    }
+    public Endereco() {
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -59,22 +88,6 @@ public class Endereco {
     }
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
-    public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep,
-            Cidade cidade, Cliente cliente) {
-        this.id = id;
-        this.logradouro = logradouro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cep = cep;
-        this.cidade = cidade;
-        this.cliente = cliente;
-    }
-    public Endereco() {
-    }
-    
-    
-
+    }  
 
 }

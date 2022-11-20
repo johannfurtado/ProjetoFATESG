@@ -1,12 +1,35 @@
 package br.com.aulapdv.syspdv.domain;
 
-public class Pagamento {
-    
-    private Integer id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
+@Entity
+public class Pagamento {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private EstadoPagamento estado;
+    
+    @OneToOne(mappedBy="pagamento")
+    private Pedido pedido;
+
     private PagamentoComCartao pagamentoComCartao;
     private PagamentoComBoleto PagamentoComBoleto;
+
+    public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido, PagamentoComCartao pagamentoComCartao,
+            br.com.aulapdv.syspdv.domain.PagamentoComBoleto pagamentoComBoleto) {
+        this.id = id;
+        this.estado = estado;
+        this.pedido = pedido;
+        this.pagamentoComCartao = pagamentoComCartao;
+        PagamentoComBoleto = pagamentoComBoleto;
+    }
+    public Pagamento(){
+    }
+
     public Integer getId() {
         return id;
     }
@@ -31,14 +54,11 @@ public class Pagamento {
     public void setPagamentoComBoleto(PagamentoComBoleto pagamentoComBoleto) {
         PagamentoComBoleto = pagamentoComBoleto;
     }
-    public Pagamento(Integer id, EstadoPagamento estado, PagamentoComCartao pagamentoComCartao,
-            br.com.aulapdv.syspdv.domain.PagamentoComBoleto pagamentoComBoleto) {
-        this.id = id;
-        this.estado = estado;
-        this.pagamentoComCartao = pagamentoComCartao;
-        PagamentoComBoleto = pagamentoComBoleto;
+    public Pedido getPedido() {
+        return pedido;
     }
-    public Pagamento(){
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
     
     

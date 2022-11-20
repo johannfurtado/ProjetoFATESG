@@ -12,16 +12,15 @@ public enum EstadoPagamento {
         this.valor = valor;
         this.descricao = descricao;
     }
-
+    private EstadoPagamento() {
+    }
+    
     public Integer getValor() {
         return valor;
     }
 
     public String getDescricao() {
         return descricao;
-    }
-
-    private EstadoPagamento() {
     }
     
 }

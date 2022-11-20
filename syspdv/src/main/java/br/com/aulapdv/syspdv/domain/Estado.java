@@ -14,9 +14,17 @@ public class Estado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+
     @OneToMany(mappedBy = "estado")
     private List<Cidade> cidades;
 
+    public Estado(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+    public Estado() {
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -35,12 +43,5 @@ public class Estado {
     public void setCidades(List<Cidade> cidades) {
         this.cidades = cidades;
     }
-    public Estado(Integer id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
-    public Estado() {
-    }
-    
 
 }

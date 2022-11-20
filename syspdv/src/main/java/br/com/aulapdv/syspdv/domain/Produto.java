@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Produto {
@@ -17,13 +18,25 @@ public class Produto {
     private Integer id;
     private String nome;
     private Double preco;
+
+    @OneToMany
     private List<ItemPedido> itensPedidos;
+
     @ManyToMany
     @JoinTable(name = "PROD_CAT", 
                joinColumns = @JoinColumn(name = "PROD_ID" ),
                inverseJoinColumns = @JoinColumn(name = "CAT_ID"))
     private List<Categoria> categorias;
 
+    public Produto(Integer id, String nome, Double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public Produto() {
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -62,15 +75,6 @@ public class Produto {
 
     public void setCategorias(List<Categoria> categorias) {
         this.categorias = categorias;
-    }
-
-    public Produto(Integer id, String nome, Double preco) {
-        this.id = id;
-        this.nome = nome;
-        this.preco = preco;
-    }
-
-    public Produto() {
     }
     
 }

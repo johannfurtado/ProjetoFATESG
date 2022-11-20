@@ -14,10 +14,19 @@ public class Cidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+
     @ManyToOne
     @JoinColumn(name = "ESTADO_ID")
     private Estado estado;
 
+    public Cidade(Integer id, String nome, Estado estado) {
+        this.id = id;
+        this.nome = nome;
+        this.estado = estado;
+    }
+    public Cidade() {
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -36,14 +45,5 @@ public class Cidade {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
-    
-    public Cidade(Integer id, String nome, Estado estado) {
-        this.id = id;
-        this.nome = nome;
-        this.estado = estado;
-    }
-    public Cidade() {
-    }
-
-    
+        
 }
