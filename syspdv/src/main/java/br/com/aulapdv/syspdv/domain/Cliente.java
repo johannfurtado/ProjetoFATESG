@@ -8,6 +8,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,6 +23,7 @@ public class Cliente {
     private String nome;
     private String email;
     private String cpfOuCnpj;
+    @Enumerated(EnumType.ORDINAL)
     private TipoCliente tipo;
 
     @OneToMany(mappedBy = "cliente")
@@ -30,7 +33,7 @@ public class Cliente {
     private List<Pedido> pedidos;
 
     @ElementCollection
-    @CollectionTable(name="TELEFONE", joinColumns=@JoinColumn(name="CLI_ID"))
+    @CollectionTable(name="CLI_TELEFONE", joinColumns=@JoinColumn(name="CLI_ID"))
     @Column(name="NUM_TELEFONE")
     private Set<String> telefones;
 

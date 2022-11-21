@@ -1,31 +1,34 @@
 package br.com.aulapdv.syspdv.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Pagamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Enumerated(EnumType.ORDINAL)
     private EstadoPagamento estado;
-    
-    @OneToOne(mappedBy="pagamento")
+
+    @OneToOne
+    @JoinColumn(name="PEDIDO_ID")
     private Pedido pedido;
 
-    private PagamentoComCartao pagamentoComCartao;
-    private PagamentoComBoleto PagamentoComBoleto;
-
-    public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido, PagamentoComCartao pagamentoComCartao,
-            br.com.aulapdv.syspdv.domain.PagamentoComBoleto pagamentoComBoleto) {
+    public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {
         this.id = id;
         this.estado = estado;
         this.pedido = pedido;
-        this.pagamentoComCartao = pagamentoComCartao;
-        PagamentoComBoleto = pagamentoComBoleto;
     }
     public Pagamento(){
     }
@@ -41,18 +44,6 @@ public class Pagamento {
     }
     public void setEstado(EstadoPagamento estado) {
         this.estado = estado;
-    }
-    public PagamentoComCartao getPagamentoComCartao() {
-        return pagamentoComCartao;
-    }
-    public void setPagamentoComCartao(PagamentoComCartao pagamentoComCartao) {
-        this.pagamentoComCartao = pagamentoComCartao;
-    }
-    public PagamentoComBoleto getPagamentoComBoleto() {
-        return PagamentoComBoleto;
-    }
-    public void setPagamentoComBoleto(PagamentoComBoleto pagamentoComBoleto) {
-        PagamentoComBoleto = pagamentoComBoleto;
     }
     public Pedido getPedido() {
         return pedido;

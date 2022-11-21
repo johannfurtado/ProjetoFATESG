@@ -19,7 +19,7 @@ public class Produto {
     private String nome;
     private Double preco;
 
-    @OneToMany
+    @OneToMany(mappedBy = "id.produto")
     private List<ItemPedido> itensPedidos;
 
     @ManyToMany
